@@ -29,6 +29,8 @@ class DirectionsService
     {
         $this->apiKey = $apiKey;
         $this->requestFactory = $requestFactory;
+
+        $this->factory = new DirectionFactory();
         $this->client = $client->withOptions([
             'base_uri' => self::URI
         ]);
