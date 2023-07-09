@@ -7,7 +7,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
-    protected const DEFAULT_DIRECTIONS_REQUEST = [
+     const DEFAULT_DIRECTIONS_REQUEST = [
         "profile" => "driving",
         "geometries" => "geojson",
         "steps" => true,
@@ -42,7 +42,7 @@ class Configuration implements ConfigurationInterface
                                 # Вид маршрута
                                 ->enumNode("profile")
                                     ->values(["driving","driving-traffic","walking","cycling"])
-                                    ->defaultValue("driving")
+                                    ->defaultValue( self::DEFAULT_DIRECTIONS_REQUEST["profile"] )
                                 ->end()
 
                                 # Тип возвращаемой геометрии
@@ -82,7 +82,6 @@ class Configuration implements ConfigurationInterface
 
 
                             ->end()
-                        ->defaultValue(self::DEFAULT_DIRECTIONS_REQUEST )
                         ->end()
                     ->end()
                 ->end()

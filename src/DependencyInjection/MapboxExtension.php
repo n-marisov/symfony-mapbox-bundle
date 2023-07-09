@@ -26,6 +26,6 @@ class MapboxExtension extends Extension
         $loader->load('services.yaml');
 
         $container->setParameter("direction.mapbox.token", $config["api_token"]);
-        $container->setParameter("direction.mapbox.request", ( ($config["directions"] ?? [] )["request"] ?? [] ) );
+        $container->setParameter("direction.mapbox.request", ( ($config["directions"] ?? [] )["request"] ?? Configuration::DEFAULT_DIRECTIONS_REQUEST ) );
     }
 }
