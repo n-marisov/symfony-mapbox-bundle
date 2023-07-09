@@ -18,14 +18,17 @@ class DirectionsService
     protected string $apiKey;
     protected HttpClientInterface $client;
 
+    protected DirectionsRequestFactory $requestFactory;
+
     protected DirectionFactory $factory;
 
     /**
      * @param HttpClientInterface $client
      */
-    public function __construct( string $apiKey,  HttpClientInterface $client )
+    public function __construct( string $apiKey,  HttpClientInterface $client, DirectionsRequestFactory $requestFactory )
     {
         $this->apiKey = $apiKey;
+        $this->requestFactory = $requestFactory;
         $this->client = $client->withOptions([
             'base_uri' => self::URI
         ]);

@@ -21,3 +21,4 @@ services:
       arguments:
          $apiKey: '%direction.mapbox.token%'
          $client: '@http_client'
+         $requestFactory: '@mapbox.directions.request_factory'
