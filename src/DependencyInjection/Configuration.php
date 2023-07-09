@@ -48,14 +48,14 @@ class Configuration implements ConfigurationInterface
                                 # Тип возвращаемой геометрии
                                 ->enumNode("geometries")
                                     ->values([ "geojson", "polyline", "polyline6" ])
-                                    ->defaultValue("geojson")
+                                    ->defaultValue( self::DEFAULT_DIRECTIONS_REQUEST["geometries"] )
                                 ->end()
 
                                 # Указывает нужно ли возвращать шаги маршрута
-                                ->booleanNode("steps")->defaultValue(true)->end()
+                                ->booleanNode("steps")->defaultValue( self::DEFAULT_DIRECTIONS_REQUEST["steps"] )->end()
 
                                 # Нужно ли искать более одного маршрута
-                                ->booleanNode("alternatives")->defaultValue(true)->end()
+                                ->booleanNode("alternatives")->defaultValue( self::DEFAULT_DIRECTIONS_REQUEST["steps"] )->end()
 
 
                                 ->arrayNode("exclude")

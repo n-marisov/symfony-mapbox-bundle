@@ -13,7 +13,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
  */
 class DirectionsService
 {
-    protected const URI = "https://api.mapbox.com/directions/v5/mapbox/driving/";
+    protected const URI = "https://api.mapbox.com/directions/v5/mapbox/";
 
     protected string $apiKey;
     protected HttpClientInterface $client;
@@ -54,14 +54,17 @@ class DirectionsService
             },$waypoints)). "?" .$this->createQuery();
     }
 
-    protected function request( array $waypoints ):?array
+    protected function request( DirectionsRequest $request ):?array
     {
-        return $this->client->request( "GET",$this->createUri( $waypoints ) )->toArray();
+        return $this->client->request( "GET", $request->createUri( $this->apiKey ) )->toArray();
     }
 
 
-    public function __invoke( array $waypoints ):Direction
+    public function __invoke( array|DirectionsRequest $request ):Direction
     {
-        return ($this->factory)( $this->request( $waypoints ), $waypoints );
+        $request = (is_a($request,DirectionsRequest::class))
+            ? $request : $this->requestFactory->create($request);
+
+        return ($this->factory)( $this->request( $request ), $request->getWaypoints() );
     }
 }
