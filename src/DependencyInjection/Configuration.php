@@ -25,7 +25,7 @@ class Configuration implements ConfigurationInterface
                 ->end()
 
 
-                ->arrayNode("request")
+                /*->arrayNode("request")
                     ->children()
                         # Вид маршрута
                         ->enumNode("profile")
@@ -69,7 +69,7 @@ class Configuration implements ConfigurationInterface
                     ->end()
 
                     ->end()
-                ->end()
+                ->end()*/
             ->end()
         ->end();
 
