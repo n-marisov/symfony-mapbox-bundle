@@ -49,6 +49,18 @@ class Configuration implements ConfigurationInterface
                                         ->booleanNode('ferry')->defaultFalse()->end()
                                         ->booleanNode('unpaved')->defaultFalse()->end()
                                         ->booleanNode('cash_only_tolls')->defaultFalse()->end()
+
+                                        ->arrayNode('points')
+                                        ->arrayPrototype()
+                                        ->children()
+
+                                            ->floatNode("lat")->min(-90.0)->max(90.0)->end()
+                                            ->floatNode("long")->min(-180.0)->max(180.0)->end()
+
+                                        ->end()
+                                        ->end()
+                                        ->end()
+
                                     ->end()
                                 ->end()
 
