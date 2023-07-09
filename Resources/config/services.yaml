@@ -9,7 +9,7 @@ services:
       alias: Maris\Symfony\Mapbox\Directions\DirectionService
 
    mapbox.directions.request_factory:
-      alias: Maris\Symfony\Mapbox\Directions\DirectionRequestFactory
+      alias: Maris\Symfony\Mapbox\Directions\DirectionsRequestFactory
 
    # Сервис для создания объекта запроса маршрута
    Maris\Symfony\Mapbox\Directions\DirectionsRequestFactory:
