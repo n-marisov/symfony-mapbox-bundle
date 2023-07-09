@@ -42,7 +42,15 @@ class Configuration implements ConfigurationInterface
                                 ->booleanNode("alternatives")->defaultValue(true)->end()
 
 
-
+                                ->arrayNode("exclude")
+                                    ->children()
+                                        ->booleanNode('motorway')->defaultFalse()->end()
+                                        ->booleanNode('toll')->defaultFalse()->end()
+                                        ->booleanNode('ferry')->defaultFalse()->end()
+                                        ->booleanNode('unpaved')->defaultFalse()->end()
+                                        ->booleanNode('cash_only_tolls')->defaultFalse()->end()
+                                    ->end()
+                                ->end()
 
 
                             ->end()
