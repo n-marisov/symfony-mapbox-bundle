@@ -20,7 +20,15 @@ class Configuration implements ConfigurationInterface
                 # Настройки для сервиса получения маршрута
                 ->arrayNode("directions")
                     ->children()
+                        ->enumNode("profile")
+                            ->values(["driving","driving-traffic","walking","cycling"])
+                            ->defaultValue("driving")
+                        ->end()
+                        ->arrayNode("request")
+                            ->children()
 
+                            ->end()
+                        ->end()
                     ->end()
                 ->end()
 
