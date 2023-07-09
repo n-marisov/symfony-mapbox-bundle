@@ -23,11 +23,27 @@ class Configuration implements ConfigurationInterface
 
                         ->arrayNode("request")
                             ->children()
-
+                                # Вид маршрута
                                 ->enumNode("profile")
                                     ->values(["driving","driving-traffic","walking","cycling"])
                                     ->defaultValue("driving")
                                 ->end()
+
+                                # Тип возвращаемой геометрии
+                                ->enumNode("geometries")
+                                    ->values([ "geojson", "polyline", "polyline6" ])
+                                    ->defaultValue("geojson")
+                                ->end()
+
+                                # Указывает нужно ли возвращать шаги маршрута
+                                ->booleanNode("steps")->defaultValue(true)->end()
+
+                                # Нужно ли искать более одного маршрута
+                                ->booleanNode("alternatives")->defaultValue(true)->end()
+
+
+
+
 
                             ->end()
                         ->end()
