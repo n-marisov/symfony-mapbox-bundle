@@ -40,7 +40,13 @@ class MapboxDirectionService implements \Maris\Symfony\Direction\Interfaces\Dire
         dump( $this->createBody($coordinates) );
         try {
             $response = $this->client->request("POST", "", [
-                "body" => $this->createBody($coordinates)
+                "body" => [
+                    "coordinates" => implode(";",array_map(function ( Location $location ){
+                        return "{$location->getLongitude()},{$location->getLatitude()}";
+                    },$coordinates)),
+                    "overview" => "false",
+                    "step" => "true"
+                ]
             ]);
         } catch (TransportExceptionInterface $e) {
             dump($e);
