@@ -19,12 +19,13 @@ class MapboxDirectionService implements \Maris\Symfony\Direction\Interfaces\Dire
     protected PolylineEncoder $encoder;
 
 
-    public function __construct( HttpClientInterface $client,  PolylineEncoder $encoder )
+    public function __construct( string $apiKey, HttpClientInterface $client,  PolylineEncoder $encoder )
     {
         $this->client = $client->withOptions([
             'base_uri' => self::URI,
             'query'=>[
-                "access_token"=>"pk.eyJ1IjoibWFyaXNvdiIsImEiOiJjbDFibTN3YzAxcm80M2twZmoxODdpeWl3In0.8bLQ-4vjM5WY_7Lq5md8kA"
+                "access_token" => $apiKey
+                //"access_token"=>"pk.eyJ1IjoibWFyaXNvdiIsImEiOiJjbDFibTN3YzAxcm80M2twZmoxODdpeWl3In0.8bLQ-4vjM5WY_7Lq5md8kA"
             ],
             "headers"=>[
                 "Content-Type" => "application/x-www-form-urlencoded"
