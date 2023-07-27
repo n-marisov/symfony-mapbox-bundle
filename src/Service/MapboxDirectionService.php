@@ -41,11 +41,7 @@ class MapboxDirectionService implements \Maris\Symfony\Direction\Interfaces\Dire
 
             dd( $this->client->request("POST", "", [
                 "body" => [
-                    "coordinates" => implode(";",array_map(function ( Location $location ){
-                        return "{$location->getLongitude()},{$location->getLatitude()}";
-                    },$coordinates)),
-                    "overview" => "false",
-                    "step" => "true"
+                    "coordinates" => "39.631678,47.223835;39.753482,43.586772"
                 ]
             ])->toArray());
        // dd($response->getContent());
