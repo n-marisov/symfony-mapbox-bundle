@@ -12,7 +12,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
  */
 class MapboxDirectionService implements \Maris\Symfony\Direction\Interfaces\DirectionServiceInterface
 {
-    const URI = "https://api.mapbox.com/directions/v5/driving/";
+    const URI = "https://api.mapbox.com/directions/v5/mapbox/driving";
 
     protected HttpClientInterface $client;
 
