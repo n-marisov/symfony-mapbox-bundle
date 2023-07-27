@@ -39,7 +39,7 @@ class MapboxDirectionService implements \Maris\Symfony\Direction\Interfaces\Dire
         $response = $this->client->request("POST","",[
             "body"=>$this->createBody( $coordinates )
         ]);
-        dd($response);
+        dd($response->getContent());
     }
 
 
