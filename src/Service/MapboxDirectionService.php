@@ -37,7 +37,7 @@ class MapboxDirectionService implements \Maris\Symfony\Direction\Interfaces\Dire
 
     public function getDirection( array $coordinates, array $options ): Direction
     {
-
+        dump( $this->createBody($coordinates) );
         try {
             $response = $this->client->request("POST", "", [
                 "body" => $this->createBody($coordinates)
